@@ -11,7 +11,7 @@ export default ({notes, onEdit, onDelete}) => {
         <Note
           task={note.task}
           key={note.id}
-          onEdit={onEdit.bind(undefined,note.id)} />
+          onEdit={onEdit.bind(undefined,note.id)}
           onDelete={onDelete.bind(undefined,note.id)} />
       </li>
 
