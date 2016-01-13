@@ -13,15 +13,15 @@ export default class App extends React.Component {
         this.state = {
             notes: [
                 {
-                    id: uuid.v4(),
+                    id  : uuid.v4(),
                     task: 'Learn Wedasbpack'
                 },
                 {
-                    id: uuid.v4(),
+                    id  : uuid.v4(),
                     task: 'Learn React'
                 },
                 {
-                    id: uuid.v4(),
+                    id  : uuid.v4(),
                     task: 'Do laundassddry1111111'
                 }
             ]
@@ -34,7 +34,7 @@ export default class App extends React.Component {
         return (
 
             <div>
-                <button onClick={this.addNote}>+</button>
+                <button className="add-note" onClick={this.addNote}>+</button>
                 <Notes
                     notes={notes}
                     onEdit={this.editNote}
@@ -49,7 +49,7 @@ export default class App extends React.Component {
     addNote = () => {
         this.setState({
             notes: this.state.notes.concat([{
-                id: uuid.v4(),
+                id  : uuid.v4(),
                 task: 'New task'
             }])
         });
