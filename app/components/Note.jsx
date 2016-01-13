@@ -69,7 +69,7 @@ export default class Note extends React.Component {
         //
         // See *Typing with React* chapter for more information.
 
-        console.log(e.target.derp);
+        console.log(e.target);
 
         if (this.props.onEdit) {
             this.props.onEdit(e.target.value);

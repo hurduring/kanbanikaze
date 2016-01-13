@@ -1,13 +1,19 @@
 import uuid from 'node-uuid';
-import alt from '../libs/alt';
-import NoteActions from '../actions/NoteActions';
+import alt from '../libs/alt.js';
+import NoteActions from '../actions/NoteActions.js';
+import assign from 'object-assign';
 
 class NoteStore {
 
     constructor() {
         this.bindActions(NoteActions);
 
-        this.notes = [];
+        this.notes = [
+            {
+                id  : uuid.v4(),
+                task: 'Learn Webpack'
+            },
+        ];
 
     }
 
