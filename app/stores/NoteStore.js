@@ -1,7 +1,7 @@
 import uuid from 'node-uuid';
 import alt from '../libs/alt.js';
 import NoteActions from '../actions/NoteActions.js';
-import assign from 'object-assign';
+import assign from 'object.assign';
 
 class NoteStore {
 
@@ -15,10 +15,15 @@ class NoteStore {
             },
         ];
 
+
+        this.exportPublicMethods({
+            getNotesByIds: this.getNotesByIds.bind(this)
+        });
+
     }
 
-    create(note) {
 
+    create(note) {
         const notes = this.notes;
 
         note.id = uuid.v4();
@@ -26,6 +31,9 @@ class NoteStore {
         this.setState({
             notes: notes.concat(note)
         });
+
+
+        return note;
 
     }
 
@@ -50,6 +58,12 @@ class NoteStore {
         });
 
     }
+
+    getNotesByIds(ids) {
+        return (ids || []).map(id => this.notes.filter(note => note.id === id)).filter(a => a.length).map(a => a[0]);
+    }
+
+
 }
 
 export default alt.createStore(NoteStore, 'NoteStore');
