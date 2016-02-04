@@ -2,14 +2,13 @@ import React from 'react';
 import Note from './Note.jsx';
 import Editable from './Editable.jsx';
 
+import LaneActions from '../actions/LaneActions';
+
 export default ({notes, onValueClick, onEdit, onDelete}) => {
     return (
         <ul className="notes">{notes.map(note =>
 
-            <Note className="note" id={note.id} key={note.id}
-                  onMove={({sourceId, targetId}) =>
-                    console.log(`source: ${sourceId}, target: ${targetId}`)
-                }>
+            <Note className="note" id={note.id} key={note.id} onMove={LaneActions.move}>
                 <Editable
                     editing={note.editing}
                     value={note.task}
