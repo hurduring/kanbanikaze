@@ -5,6 +5,8 @@ import NoteActions from '../actions/NoteActions';
 import LaneActions from '../actions/LaneActions';
 import NoteStore from '../stores/NoteStore';
 import Editable from './Editable.jsx';
+import update from 'react-addons-update';
+
 
 export default class Lane extends React.Component {
 
