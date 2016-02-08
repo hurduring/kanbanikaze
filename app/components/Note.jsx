@@ -4,14 +4,17 @@ import {DragSource, DropTarget} from 'react-dnd';
 
 import ItemTypes from '../constants/itemTypes';
 
+
 const noteSource = {
     beginDrag(props) {
         return {
             id: props.id
         };
+    },
+    isDragging(props, monitor) {
+        return props.id === monitor.getItem().id;
     }
 };
-
 
 const noteTarget = {
     hover(targetProps, monitor) {
@@ -28,7 +31,7 @@ const noteTarget = {
 
 @DragSource(ItemTypes.NOTE, noteSource, (connect, monitor) => ({
     connectDragSource: connect.dragSource(),
-    isDragging: monitor.isDragging() // map isDragging() state to isDragging prop
+    isDragging       : monitor.isDragging() // map isDragging() state to isDragging prop
 }))
 @DropTarget(ItemTypes.NOTE, noteTarget, (connect) => ({
     connectDropTarget: connect.dropTarget()
