@@ -1,5 +1,4 @@
 import uuid from 'node-uuid';
-import assign from 'object.assign';
 import alt from '../libs/alt';
 import LaneActions from '../actions/LaneActions';
 import update from 'react-addons-update';

@@ -1,7 +1,6 @@
 import uuid from 'node-uuid';
 import alt from '../libs/alt.js';
 import NoteActions from '../actions/NoteActions.js';
-import assign from 'object.assign';
 
 class NoteStore {
 
@@ -41,7 +40,7 @@ class NoteStore {
 
         const notes = this.notes.map((note) => {
             if (note.id === updatedNote.id) {
-                return assign({}, note, updatedNote);
+                return Object.assign({}, note, updatedNote);
             }
 
             return note;
